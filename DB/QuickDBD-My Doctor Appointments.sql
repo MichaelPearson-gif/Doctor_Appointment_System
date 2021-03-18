@@ -45,13 +45,12 @@ CREATE TABLE appointment (
 );
 
 CREATE TABLE "patient_doctor" (
+	pd_id SERIAL PRIMARY KEY,
     patient INT NOT NULL REFERENCES users(user_id),
-    doctor INT NOT NULL REFERENCES users(user_id),
-    CONSTRAINT pk_patient_doctor PRIMARY KEY (
-        patient, doctor
-     )
+    doctor INT NOT NULL REFERENCES users(user_id)
 );
 
+-- In case of major restructuring
 DROP TABLE users CASCADE;
 DROP TABLE roles CASCADE;
 DROP TABLE address CASCADE;
