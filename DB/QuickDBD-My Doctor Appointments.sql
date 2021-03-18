@@ -19,7 +19,7 @@ CREATE TABLE roles (
 );
 
 CREATE TABLE address (
-    address_id INT PRIMARY KEY,
+    address_id SERIAL PRIMARY KEY,
     street VARCHAR NOT NULL,
     city VARCHAR NOT NULL,
     state VARCHAR NOT NULL,
@@ -51,4 +51,11 @@ CREATE TABLE "patient_doctor" (
         patient, doctor
      )
 );
+
+DROP TABLE users CASCADE;
+DROP TABLE roles CASCADE;
+DROP TABLE address CASCADE;
+DROP TABLE bill CASCADE;
+DROP TABLE appointment CASCADE;
+DROP TABLE patient_doctor CASCADE;
 
