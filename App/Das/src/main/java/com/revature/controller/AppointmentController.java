@@ -12,9 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.model.Appointment;
-import com.revature.model.Users;
 import com.revature.service.AppointmentService;
-import com.revature.service.UsersService;
 
 @RestController(value = "appointmentController")
 @RequestMapping(path = "/appointment")
@@ -22,21 +20,13 @@ public class AppointmentController {
 
 	@Autowired
 	private AppointmentService appointmentService;
-	@Autowired
-	private UsersService usersService;
-	
-//	@Autowired
-//	public void setAppointmentService(AppointmentService appointmentService, UsersService usersService) {
-//		this.appointmentService = appointmentService;
-//		this.usersService = usersService;
-//	}
 	
 	// Creating a new appointment spot
 	@PostMapping(path = "/new-spot", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public void createAppointment(@RequestBody Appointment appointment) {
 		// Set the doctor object
-		Users doctor = this.usersService.viewUser(3);
-		appointment.setDoctor(doctor);
+//		Users doctor = this.usersService.viewUser(3);
+//		appointment.setDoctor(doctor);
 		this.appointmentService.createAppointment(appointment);
 	}
 	
