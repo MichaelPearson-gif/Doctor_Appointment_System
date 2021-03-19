@@ -19,7 +19,7 @@ CREATE TABLE roles (
 );
 
 CREATE TABLE address (
-    address_id SERIAL PRIMARY KEY,
+    address_id INT PRIMARY KEY,
     street VARCHAR NOT NULL,
     city VARCHAR NOT NULL,
     state VARCHAR NOT NULL,
