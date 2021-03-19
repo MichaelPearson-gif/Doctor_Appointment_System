@@ -24,9 +24,6 @@ public class AppointmentController {
 	// Creating a new appointment spot
 	@PostMapping(path = "/new-spot", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public void createAppointment(@RequestBody Appointment appointment) {
-		// Set the doctor object
-//		Users doctor = this.usersService.viewUser(3);
-//		appointment.setDoctor(doctor);
 		this.appointmentService.createAppointment(appointment);
 	}
 	
