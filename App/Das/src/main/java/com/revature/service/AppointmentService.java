@@ -34,6 +34,9 @@ public class AppointmentService {
 	
 	// Patients can cancel appointments
 	public void cancelAppointment(Appointment appointment) {
+		// Set the status to canceled
+		appointment.setStatus("canceled");
+
 		this.appointmentRepository.save(appointment);
 	}
 	

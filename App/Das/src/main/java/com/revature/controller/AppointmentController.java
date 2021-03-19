@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.model.Appointment;
@@ -42,12 +43,6 @@ public class AppointmentController {
 	// Patients book an appointment
 	@PostMapping(path = "/booking", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public void bookAppointment(@RequestBody Appointment appointment) {
-		// Set the patient object
-//		Users patient = this.usersService.viewUser(appointment.getPatient().getUserId());
-//		appointment.setDoctor(patient);
-//		// Set the doctor object
-//		Users doctor = this.usersService.viewUser(appointment.getDoctor().getUserId());
-//		appointment.setDoctor(doctor);
 		this.appointmentService.bookAppointment(appointment);
 	}
 	
@@ -65,13 +60,13 @@ public class AppointmentController {
 	
 	// Patients can view their appointments
 	@GetMapping(path = "/appointments", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Appointment> viewMyAppointments(@RequestBody int patientId){
+	public List<Appointment> viewMyAppointments(@RequestParam int patientId){
 		return this.appointmentService.viewMyAppointments(patientId);
 	}
 	
 	// Doctor can view their scheduled appointments
 	@GetMapping(path = "/viewBookedAppointments", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Appointment> viewMyScheduledAppointments(@RequestBody int doctorId){
+	public List<Appointment> viewMyScheduledAppointments(@RequestParam int doctorId){
 		return this.appointmentService.viewMyScheduledAppointments(doctorId);
 	}
 
