@@ -20,8 +20,8 @@ public class Users {
 
 	@Column(name = "user_id")
 	@Id
-	@GeneratedValue(generator = "users_user_id_seq", strategy = GenerationType.AUTO)
-	@SequenceGenerator(allocationSize = 1, name = "users_user_id_seq", sequenceName = "users_user_id_seq")
+	@GeneratedValue(generator = "das.users_user_id_seq", strategy = GenerationType.AUTO)
+	@SequenceGenerator(allocationSize = 1, name = "das.users_user_id_seq", sequenceName = "das.users_user_id_seq")
 	private int userId;
 	
 	@Column(name = "email")
@@ -39,8 +39,8 @@ public class Users {
 	@Column(name = "gender")
 	private String gender;
 	
-	@Column(name = "phone", columnDefinition = "INT")
-	private long phone;
+	@Column(name = "phone")
+	private Integer phone;
 	
 	@JoinColumn(name = "address")
 	@OneToOne
@@ -62,7 +62,7 @@ public class Users {
 	}
 
 	public Users(int userId, String email, Byte[] profilePic, String firstName, String lastName, String gender,
-			long phone, Address address, Roles roles, Date dob, String userPassword) {
+			int phone, Address address, Roles roles, Date dob, String userPassword) {
 		super();
 		this.userId = userId;
 		this.email = email;
@@ -125,11 +125,11 @@ public class Users {
 		this.gender = gender;
 	}
 
-	public long getPhone() {
+	public int getPhone() {
 		return phone;
 	}
 
-	public void setPhone(long phone) {
+	public void setPhone(int phone) {
 		this.phone = phone;
 	}
 
@@ -175,7 +175,7 @@ public class Users {
 		result = prime * result + ((firstName == null) ? 0 : firstName.hashCode());
 		result = prime * result + ((gender == null) ? 0 : gender.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
-		result = prime * result + (int) (phone ^ (phone >>> 32));
+		result = prime * result + phone;
 		result = prime * result + Arrays.hashCode(profilePic);
 		result = prime * result + ((roles == null) ? 0 : roles.hashCode());
 		result = prime * result + userId;

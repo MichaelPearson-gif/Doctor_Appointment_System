@@ -18,7 +18,7 @@ public class Appointment {
 
 	@Column(name = "appointment_id")
 	@Id
-	@GeneratedValue(generator = "appointment_appointment_id_seq", strategy = GenerationType.AUTO)
+	@GeneratedValue(generator = "appointment_appointment_id_seq", strategy = GenerationType.SEQUENCE)
 	@SequenceGenerator(allocationSize = 1, name = "appointment_appointment_id_seq", sequenceName = "appointment_appointment_id_seq")
 	private int appointmentId;
 	

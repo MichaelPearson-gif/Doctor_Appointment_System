@@ -31,7 +31,7 @@ public interface AppointmentRepository extends JpaRepository<Appointment, Intege
 	
 	// Doctors can view their booked appointments
 	@Query(value = "SELECT a FROM Appointment a WHERE a.doctor.userId = :doctorId "
-			+ "a.status != 'available'")
-	List<Appointment> findAllByDoctorAndStatus(int doctorId);
+			+ "AND a.status = 'booked'")
+	List<Appointment> findAllByDoctorAndStatus(@Param("doctorId") int doctorId);
 	
 }

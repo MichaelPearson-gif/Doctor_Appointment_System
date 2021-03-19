@@ -37,7 +37,7 @@ CREATE TABLE bill (
 );
 
 CREATE TABLE appointment (
-    appointment_id SERIAL PRIMARY KEY,
+    appointment_id INT PRIMARY KEY,
     schedule TIMESTAMP,
     patient INT REFERENCES users(user_id),
     doctor INT NOT NULL REFERENCES users(user_id),
