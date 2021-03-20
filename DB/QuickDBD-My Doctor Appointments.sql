@@ -45,7 +45,7 @@ CREATE TABLE appointment (
 );
 
 CREATE TABLE "patient_doctor" (
-	pd_id SERIAL PRIMARY KEY,
+	pd_id INT PRIMARY KEY,
     patient INT NOT NULL REFERENCES users(user_id),
     doctor INT NOT NULL REFERENCES users(user_id)
 );

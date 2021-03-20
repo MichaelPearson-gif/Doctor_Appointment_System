@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.model.Roles;
 import com.revature.model.Users;
 import com.revature.repository.UsersRepository;
 
@@ -21,8 +20,6 @@ public class UsersService {
 	
 	// Creating a new patient
 	public void registerNewPatient(Users user) {
-		Roles role = new Roles(3, "patient");
-		user.setRoles(role);
 		this.usersRepository.save(user);
 	}
 	
@@ -32,12 +29,10 @@ public class UsersService {
 	}
 	
 	// Get all doctors
-	public List<Users> findAllDoctors(){
-		
-		Roles role = new Roles(2, "doctor");
-		
-		return this.usersRepository.findAllByRoles(role.getUserRole());
-	}
+//	public List<Users> findAllDoctors(){
+//		
+//		return this.usersRepository.findAllByRoles(role.getUserRole());
+//	}
 	
 	// Grab user info
 	public Users viewUser(int userId) {

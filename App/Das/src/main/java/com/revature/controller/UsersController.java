@@ -25,10 +25,10 @@ public class UsersController {
 		this.usersService = usersService;
 	}
 	
-	@GetMapping(path = "/all")
-	public List<Users> getAllDoctors(){
-		return this.usersService.findAllDoctors();
-	}
+//	@GetMapping(path = "/all")
+//	public List<Users> getAllDoctors(){
+//		return this.usersService.findAllDoctors();
+//	}
 	
 	@PostMapping(path = "/new", consumes = {MediaType.APPLICATION_JSON_VALUE})
 	public void registerNewPatient(@RequestBody Users user) {
